@@ -1,0 +1,99 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/homepagelayout::head_cata_check_contact">
+</head>
+<body>
+<!-- header_top -->
+<div th:replace="layout/homepagelayout::header"></div>
+<!-- header -->
+<div class="header_bg">
+	<div class="container">
+	<div class="container-header-top">
+		<div class="header">
+			<div class="head-t">
+				<div th:replace="layout/homepagelayout::logo"></div>
+				<!-- start header_right -->
+				<div class="header_right">
+					<div th:replace="layout/homepagelayout::login"></div>
+					<div th:replace="layout/homepagelayout::search"></div>
+				</div>
+			</div>
+			<!-- start header menu -->
+			<div th:replace="layout/homepagelayout::menu"></div>
+		</div>
+	</div>
+	</div>
+</div>
+<!-- content -->
+<div class="container">
+<div class="women_main">
+	<!-- start sidebar -->
+	<div class="col-md-3 s-d">
+	  <div class="w_sidebar">
+		<div class="w_nav1">
+			<h4>All</h4>
+		</div>
+		<h3>filter by</h3>
+		<section  class="sky-form">
+					<h4>catogories</h4>
+						<div class="row1 scroll-pane">
+							<div class="col col-4" id="allType">
+							</div>
+						</div>
+		</section>
+		  <section  class="sky-form">
+			  <h4>vendors</h4>
+			  <div class="row1 scroll-pane">
+				  <div class="col col-4" id="allVendor">
+				  </div>
+			  </div>
+		  </section>
+
+	</div>
+   </div>
+	<!-- start content -->
+	<div class="col-md-9 w_content" id="contents" >
+		<div class="women">
+			<input type="hidden" th:value="${typeProduct.id}" id="idType">
+			<input type="hidden" th:value="${vendor.id}" id="idVendor">
+			<a href="#"><h4><span th:text="${typeProduct.name}" id="nameTypeVendor"></span> - <span id="sl"></span> items</h4></a>
+<!--			<ul class="w_nav">-->
+<!--						<li>Sort : </li>-->
+<!--		     			<li><a class="active" href="#">popular</a></li> |-->
+<!--		     			<li><a href="#">new </a></li> |-->
+<!--		     			<li><a href="#">discount</a></li> |-->
+<!--		     			<li><a href="#">price: Low High </a></li> -->
+<!--		     			<div class="clear"></div>	-->
+<!--		     </ul>-->
+		     <div class="clearfix"></div>	
+		</div>
+		<!-- grids_of_4 -->
+		<div id="listProduct">
+
+		</div>
+		<!-- end grids_of_4 -->
+
+		<nav aria-label="Page navigation example">
+			<ul class="pagination justify-content-center" id="pageable">
+			</ul>
+		</nav>
+	</div>
+
+	<div class="clearfix"></div>
+	
+	<!-- end content -->
+</div>
+</div>
+<div th:replace="layout/homepagelayout::footer"></div>
+<div th:replace="layout/homepagelayout::toars"></div>
+</body>
+<script th:src="@{../js/menu.js}"></script>
+<script th:src="@{../js/addToCart.js}"></script>
+</html>

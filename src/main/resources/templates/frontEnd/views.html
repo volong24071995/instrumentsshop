@@ -1,0 +1,58 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/homepagelayout::head_view_blog_index">
+</head>
+<body>
+	<!-- header_top -->
+	<div th:replace="layout/homepagelayout::header"></div>
+	<!-- header -->
+	<div class="header_bg">
+		<div class="container">
+			<div class="header">
+				<div class="head-t">
+					<div th:replace="layout/homepagelayout::logo"></div>
+					<!-- start header_right -->
+					<div class="header_right">
+						<div th:replace="layout/homepagelayout::login"></div>
+						<div th:replace="layout/homepagelayout::search"></div>
+					</div>
+				</div>
+				<!-- start header menu -->
+				<div th:replace="layout/homepagelayout::menu"></div>
+			</div>
+		</div>
+	</div>
+	<!-- content -->
+	<div class="container">
+		<div class="main">
+			<div class="contact">
+				<div class="contact_info">
+					<h2 th:text="${blog.title}" style="justify-content: center;text-align: center"></h2>
+					<div class="map" style="justify-content: center;text-align: center">
+						<img th:src="${blog.image}">
+					</div>
+				</div>
+				<div class="contact-form">
+					<input type="hidden" id="id" th:value="${blog.id}">
+					<div id="viewContent">
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+<!--Footer-->
+	<div th:replace="layout/homepagelayout::footer"></div>
+	<div th:replace="layout/homepagelayout::toars"></div>
+</body>
+<script th:src="@{../js/home.js}"></script>
+<script th:src="@{../js/menu.js}"></script>
+<script th:src="@{../js/addToCart.js}"></script>
+</html>

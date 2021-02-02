@@ -1,0 +1,192 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+	<title>Trang Chủ</title>
+	<link th:href="@{../fe/css/bootstrap.css}" rel='stylesheet' type='text/css' />
+	<!-- jQuery (necessary JavaScript plugins) -->
+	<script type='text/javascript' th:src="@{../fe/js/jquery-1.11.1.min.js}"></script>
+	<!-- Custom Theme files -->
+	<link th:href="@{../fe/css/style.css}" rel='stylesheet' type='text/css' />
+	<!-- Custom Theme files -->
+	<!--//theme-style-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900' rel='stylesheet' type='text/css'>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
+	<!-- start menu -->
+	<link th:href="@{../fe/css/megamenu.css}" rel="stylesheet" type="text/css" media="all" />
+	<link rel="stylesheet" th:href="@{../fe/css/etalage.css}">
+	<script type="text/javascript" th:src="@{../fe/js/megamenu.js}"></script>
+	<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
+	<script th:src="@{../fe/js/jquery.etalage.min.js}"></script>
+	<script th:src="@{../fe/js/menu_jquery.js}"></script>
+	<script>
+		jQuery(document).ready(function($){
+
+			$('#etalage').etalage({
+				thumb_image_width: 300,
+				thumb_image_height: 400,
+				source_image_width: 900,
+				source_image_height: 1200,
+				show_hint: true,
+				click_callback: function(image_anchor, instance_id){
+					alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
+				}
+			});
+
+		});
+	</script>
+
+</head>
+<body>
+<!-- header_top -->
+<div th:replace="layout/homepagelayout::header"></div>
+<!-- header -->
+<div class="header_bg">
+<div class="container">
+	<div class="header">
+	<div class="head-t">
+		<div th:replace="layout/homepagelayout::logo"></div>
+		<!-- start header_right -->
+		<div class="header_right">
+			<div th:replace="layout/homepagelayout::login"></div>
+			<div th:replace="layout/homepagelayout::search"></div>
+		</div>
+	</div>
+		<!-- start header menu -->
+		<div th:replace="layout/homepagelayout::menu"></div>
+	</div>
+</div>
+</div>
+<!-- content -->
+<div class="container">
+<div class="women_main">
+	<!-- start content -->
+			<div class="row single">
+				<div class="col-md-9 det">
+				  <div class="single_left">
+					<div class="grid images_3_of_2">
+						<ul id="etalage">
+							<li>
+								<a th:href="${product.name}">
+									<img class="etalage_thumb_image img-responsive" th:src="${product.image}"  />
+									<img class="etalage_source_image img-responsive" th:src="${product.image}"  title="" />
+								</a>
+							</li>
+						</ul>
+						 <div class="clearfix"></div>		
+				  </div>
+				  <div class="desc1 span_3_of_2">
+					<h3 th:text="${product.name}"></h3>
+					<span class="brand">Brand: <a href="#" th:text="${product.getTypeProduct().getName()}"></a></span>
+					<br>
+					  <input type="hidden" th:value="${product.id}" id="id">
+					<span class="code">Product Code: <span th:text="${product.id}"></span></span>
+					<small>when an unknown printer took a galley of type and scrambled it to make</small>
+						<div class="price">
+							<span class="text">Price:</span>
+							<span class="price-new">$<text th:text="${product.price}"></text></span>
+						</div>
+					<div class="det_nav1">
+						<h4>Select a size :</h4>
+							<div class=" sky-form col col-4">
+								<ul>
+									<li><label class="checkbox"><input type="checkbox" name="checkbox" checked><i></i><span th:text="${product.size}"></span></label></li>
+								</ul>
+							</div>
+					</div>
+					<div class="btn_form" id="addCart">
+
+					</div>
+					  <div sec:authorize="!isAuthenticated()">
+						  <a href="/login"><span>login to save in wishlist </span></a>
+					  </div>
+			   	 </div>
+          	    <div class="clearfix"></div>
+          	   </div>
+          	    <div class="single-bottom1">
+					<h6>Details</h6>
+					<p class="prod-desc" th:text="${product.description}"></p>
+				</div>
+<!--				<div class="single-bottom2">-->
+<!--					<h6>Related Products</h6>-->
+<!--						<div class="product">-->
+<!--						   <div class="product-desc">-->
+<!--								<div class="product-img">-->
+<!--		                           <img src="images/w8.jpg" class="img-responsive " alt=""/>-->
+<!--		                       </div>-->
+<!--		                       <div class="prod1-desc">-->
+<!--		                           <h5><a class="product_link" href="#">Excepteur sint</a></h5>-->
+<!--		                           <p class="product_descr"> Vivamus ante lorem, eleifend nec interdum non, ullamcorper et arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>									-->
+<!--							   </div>-->
+<!--							  <div class="clearfix"></div>-->
+<!--					      </div>-->
+<!--						  <div class="product_price">-->
+<!--								<span class="price-access">$597.51</span>								-->
+<!--								<button class="button1"><span>Add to cart</span></button>-->
+<!--		                  </div>-->
+<!--						 <div class="clearfix"></div>-->
+<!--				     </div>-->
+<!--				     <div class="product">-->
+<!--						   <div class="product-desc">-->
+<!--								<div class="product-img">-->
+<!--		                           <img src="images/w10.jpg" class="img-responsive " alt=""/>-->
+<!--		                       </div>-->
+<!--		                       <div class="prod1-desc">-->
+<!--		                           <h5><a class="product_link" href="#">Excepteur sint</a></h5>-->
+<!--		                           <p class="product_descr"> Vivamus ante lorem, eleifend nec interdum non, ullamcorper et arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>									-->
+<!--							   </div>-->
+<!--							   <div class="clearfix"></div>-->
+<!--					      </div>-->
+<!--						  <div class="product_price">-->
+<!--								<span class="price-access">$597.51</span>								-->
+<!--								<button class="button1"><span>Add to cart</span></button>-->
+<!--		                  </div>-->
+<!--						 <div class="clearfix"></div>-->
+<!--				     </div>-->
+<!--		   	  </div>-->
+	       </div>	
+	<div class="col-md-3">
+	  <div class="w_sidebar">
+		<div class="w_nav1">
+			<h4>All</h4>
+		</div>
+		<h3>filter by</h3>
+		<section  class="sky-form">
+					<h4>catogories</h4>
+						<div class="row1 scroll-pane">
+							<div class="col col-4" id="allTypeDetail">
+							</div>
+						</div>
+		</section>
+		  <section  class="sky-form">
+			  <h4>vendors</h4>
+			  <div class="row1 scroll-pane">
+				  <div class="col col-4" id="allVendorDetail">
+				  </div>
+			  </div>
+		  </section>
+	</div>
+   </div>
+		   <div class="clearfix"></div>		
+	  </div>
+	<!-- end content -->
+</div>
+</div>
+<div th:replace="layout/homepagelayout::footer"></div>
+<div th:replace="layout/homepagelayout::toars"></div>
+</body>
+<script th:src="@{../js/menu.js}"></script>
+<script th:src="@{../js/addToCart.js}"></script>
+</html>
