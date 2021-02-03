@@ -1,7 +1,6 @@
 package com.codegym.project.repository;
 
 import com.codegym.project.model.Blog;
-import com.codegym.project.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
