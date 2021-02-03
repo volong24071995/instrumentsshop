@@ -4,7 +4,7 @@ rates.intTable = function () {
     if (role==='ADMIN'){
         $("#rates-datatables").DataTable({
             ajax: {
-                url: 'http://localhost:8080/api/rates/',
+                url: '/api/rates/',
                 method: "GET",
                 datatype: "json",
                 dataSrc: ""
@@ -53,7 +53,7 @@ rates.intTable = function () {
     }else {
         $("#rates-datatables").DataTable({
             ajax: {
-                url: 'http://localhost:8080/api/rates/',
+                url: '/api/rates/',
                 method: "GET",
                 datatype: "json",
                 dataSrc: ""
@@ -117,7 +117,7 @@ rates.delete = function (id) {
         callback: function (result) {
             if (result) {
                 $.ajax({
-                    url: "http://localhost:8080/api/rate/" + id,
+                    url: "/api/rate/" + id,
                     method: "DELETE",
                     dataType: "json",
                     success: function () {
@@ -136,7 +136,7 @@ rates.delete = function (id) {
 
 rates.get = function (id) {
     $.ajax({
-        url: "http://localhost:8080/api/rate/" + id,
+        url: "/api/rate/" + id,
         method: "GET",
         dataType: "json",
         success: function (data) {

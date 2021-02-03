@@ -6,7 +6,7 @@ productLines.intTable = function () {
     if (role==="ADMIN"){
         $("#productLines-datatables").DataTable({
             ajax: {
-                url: 'http://localhost:8080/api/typeProductsDeleted/',
+                url: '/api/typeProductsDeleted/',
                 method: "GET",
                 datatype: "json",
                 dataSrc: ""
@@ -61,7 +61,7 @@ productLines.intTable = function () {
     }else {
         $("#productLines-datatables").DataTable({
             ajax: {
-                url: 'http://localhost:8080/api/typeProductsDeleted/',
+                url: '/api/typeProductsDeleted/',
                 method: "GET",
                 datatype: "json",
                 dataSrc: ""
@@ -123,7 +123,7 @@ productLines.delete = function (id) {
         callback: function (result) {
             if (result) {
                 $.ajax({
-                    url: "http://localhost:8080/api/typeProductDeleted/" + id,
+                    url: "/api/typeProductDeleted/" + id,
                     method: "DELETE",
                     dataType: "json",
                     error:function (jqXHR,exception){
@@ -156,7 +156,7 @@ productLines.undo= function (id) {
         callback: function (result) {
             if (result) {
                 $.ajax({
-                    url: "http://localhost:8080/api/typeProductUndo/" + id,
+                    url: "/api/typeProductUndo/" + id,
                     method: "PUT",
                     dataType: "json",
                     success: function () {
@@ -173,7 +173,7 @@ productLines.undo= function (id) {
 };
 productLines.getTypeProductDeleted = function (id) {
     $.ajax({
-        url: "http://localhost:8080/api/typeProductDeleted/" + id,
+        url: "/api/typeProductDeleted/" + id,
         method: "GET",
         dataType: "json",
         success: function (data) {

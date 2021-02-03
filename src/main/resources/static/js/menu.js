@@ -4,7 +4,7 @@ var orders={}|orders;
 //productLines
 productLines.listType = function () {
     $.ajax({
-        url: 'http://localhost:8080/api/listTypeProductsById/',
+        url: '/api/listTypeProductsById/',
         method: "GET",
         dataType: "json",
         success: function (data) {
@@ -105,13 +105,13 @@ productLines.listProducts=function(id,page){
     }
     var search = $('#str').val();
     $.ajax({
-        url: 'http://localhost:8080/api/typeProduct/' +id,
+        url: '/api/typeProduct/' +id,
         method: "GET",
         dataType: "json",
         success: function (data) {
             $('#nameTypeVendor').html(data.name)
             $.ajax({
-                url: 'http://localhost:8080/api/productsByIdTypeProduct/'+id+'?page='+page+"&search="+search,
+                url: '/api/productsByIdTypeProduct/'+id+'?page='+page+"&search="+search,
                 method: "GET",
                 dataType: "json",
                 success: function (data) {
@@ -174,7 +174,7 @@ productLines.listProductsById=function(page){
     }
     if (idType!=""){
         $.ajax({
-            url: 'http://localhost:8080/api/productsByIdTypeProduct/'+idType+'?page='+page+"&search="+search,
+            url: '/api/productsByIdTypeProduct/'+idType+'?page='+page+"&search="+search,
             method: "GET",
             dataType: "json",
             success: function (data) {
@@ -231,7 +231,7 @@ productLines.listProductsById=function(page){
 vendors.listVendors= function () {
     if ($('#allVendor').empty()){
     $.ajax({
-        url: 'http://localhost:8080/api/listVendorsById/',
+        url: '/api/listVendorsById/',
         method: "GET",
         dataType: "json",
         success: function (data) {
@@ -256,13 +256,13 @@ vendors.listProducts=function(id,page){
     }
     var search = $('#str').val();
     $.ajax({
-        url: 'http://localhost:8080/api/vendor/' +id,
+        url: '/api/vendor/' +id,
         method: "GET",
         dataType: "json",
         success: function (data) {
             $('#nameTypeVendor').html(data.name)
             $.ajax({
-                url: 'http://localhost:8080/api/productsByVendorId/'+id+'?page='+page+"&search="+search,
+                url: '/api/productsByVendorId/'+id+'?page='+page+"&search="+search,
                 method: "GET",
                 dataType: "json",
                 success: function (data) {
@@ -325,14 +325,14 @@ vendors.listProductsById=function(page){
     }
     if (idVendor!=""){
         $.ajax({
-            url: 'http://localhost:8080/api/vendor/' + idVendor,
+            url: '/api/vendor/' + idVendor,
             method: "GET",
             dataType: "json",
             success: function (data) {
                 $('#nameTypeVendor').html(data.name);
 
                 $.ajax({
-                    url: 'http://localhost:8080/api/productsByVendorId/' + idVendor + '?page=' + page + "&search=" + search,
+                    url: '/api/productsByVendorId/' + idVendor + '?page=' + page + "&search=" + search,
                     method: "GET",
                     dataType: "json",
                     success: function (data) {

@@ -6,7 +6,7 @@ rates.create = function () {
         rateObj.email = $('#mail').val();
         rateObj.content = $('#content').val();
         $.ajax({
-            url: "http://localhost:8080/api/rate/",
+            url: "/api/rate/",
             method: "POST",
             dataType: 'json',
             contentType: "application/json",

@@ -14,7 +14,7 @@ var hexVendor;
 
 productLines.listType = function () {
     $.ajax({
-        url: 'http://localhost:8080/api/listTypeProductsById/',
+        url: '/api/listTypeProductsById/',
         method: "GET",
         dataType: "json",
         success: function (data) {
@@ -25,7 +25,7 @@ productLines.listType = function () {
                 hexType[i]='#'+((Math.random()/i)*0xFFFFFF<<0).toString(16);
                 listType[i]=v.name;
                 $.ajax({
-                    url: 'http://localhost:8080/api/productsByIdType/'+data[i].id,
+                    url: '/api/productsByIdType/'+data[i].id,
                     method: "GET",
                     dataType: "json",
                     success: function (data) {
@@ -41,7 +41,7 @@ productLines.listType = function () {
 
 vendors.listVendor = function () {
     $.ajax({
-        url: 'http://localhost:8080/api/listVendorsById/',
+        url: '/api/listVendorsById/',
         method: "GET",
         dataType: "json",
         success: function (data) {
@@ -52,7 +52,7 @@ vendors.listVendor = function () {
                 hexVendor[i]='#'+((Math.random()/i)*0xFFFFFF<<0).toString(16);
                 listVendor[i]=v.name;
                 $.ajax({
-                    url: 'http://localhost:8080/api/productsByIdVendor/'+data[i].id,
+                    url: '/api/productsByIdVendor/'+data[i].id,
                     method: "GET",
                     dataType: "json",
                     success: function (data) {

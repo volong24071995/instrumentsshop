@@ -1,7 +1,7 @@
 var orders={}||orders;
 orders.addToCart=function (id) {
     $.ajax({
-        url: 'http://localhost:8080/api/addCart/'+id,
+        url: '/api/addCart/'+id,
         method: "GET",
         dataType: "json",
         success: function (data) {
@@ -25,7 +25,7 @@ orders.showCart=function () {
         )
     }
     $.ajax({
-        url: 'http://localhost:8080/api/showCart/',
+        url: '/api/showCart/',
         method: "GET",
         dataType: "json",
         success: function (data) {
@@ -79,7 +79,7 @@ orders.showCart=function () {
 
 orders.deleteProduct=function (id) {
     $.ajax({
-        url: 'http://localhost:8080/api/deleteProduct/' + id,
+        url: '/api/deleteProduct/' + id,
         method: "GET",
         dataType: "json",
         success: function (data) {
@@ -91,7 +91,7 @@ orders.deleteProduct=function (id) {
 
 orders.deleteAllProduct=function () {
     $.ajax({
-        url: 'http://localhost:8080/api/deleteALlProduct/',
+        url: '/api/deleteALlProduct/',
         method: "GET",
         dataType: "json",
         success: function (data) {
@@ -103,7 +103,7 @@ orders.deleteAllProduct=function () {
 
 orders.checkoutCart=function (){
     $.ajax({
-        url: 'http://localhost:8080/api/checkoutCart/',
+        url: '/api/checkoutCart/',
         method: "GET",
         dataType: "json",
         success: function (data) {
@@ -134,7 +134,7 @@ orders.upDown=function (title,id){
                 callback: function (result) {
                     if (result) {
                         $.ajax({
-                            url: "http://localhost:8080/api/down/" + id,
+                            url: "/api/down/" + id,
                             method: "GET",
                             dataType: "json",
                             success: function () {
@@ -151,7 +151,7 @@ orders.upDown=function (title,id){
         }
     }else {
         $.ajax({
-            url: "http://localhost:8080/api/up/" + id,
+            url: "/api/up/" + id,
             method: "GET",
             dataType: "json",
             success: function () {

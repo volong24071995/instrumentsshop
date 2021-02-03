@@ -7,7 +7,7 @@ banners.intTable = function () {
     if (role==='ADMIN'){
         $('#banners-datatables').DataTable({
             ajax: {
-                url: 'http://localhost:8080/api/bannersDeleted/',
+                url: '/api/bannersDeleted/',
                 method: 'GET',
                 dataType: 'json',
                 dataSrc: ''
@@ -49,7 +49,7 @@ banners.intTable = function () {
     }else {
         $('#banners-datatables').DataTable({
             ajax: {
-                url: 'http://localhost:8080/api/bannersDeleted/',
+                url: '/api/bannersDeleted/',
                 method: 'GET',
                 dataType: 'json',
                 dataSrc: ''
@@ -84,7 +84,7 @@ banners.intTable = function () {
 
 banners.getBannerDeleted = function (id) {
     $.ajax({
-        url: "http://localhost:8080/api/bannerDeleted/" + id,
+        url: "/api/bannerDeleted/" + id,
         method: "GET",
         dataType: "json",
         success: function (data) {
@@ -121,7 +121,7 @@ banners.delete = function (id){
         callback: function (result){
             if (result){
                 $.ajax({
-                    url: 'http://localhost:8080/api/bannerDeleted/' + id,
+                    url: '/api/bannerDeleted/' + id,
                     method: "DELETE",
                     dataType: "json",
                     success: function (){
@@ -153,7 +153,7 @@ banners.undo = function (id){
         callback: function (result){
             if(result){
                 $.ajax({
-                    url: 'http://localhost:8080/api/bannerUndo/' + id,
+                    url: '/api/bannerUndo/' + id,
                     method: "PUT",
                     dataType: "json",
                     success: function (){

@@ -3,7 +3,7 @@ var rates = {} || rates;
 employees.intTable = function () {
     $("#employees-dataTable").DataTable({
         ajax: {
-            url: 'http://localhost:8080/api/employees/',
+            url: '/api/employees/',
             method: "GET",
             datatype: "json",
             dataSrc: ""
@@ -71,7 +71,7 @@ employees.save = function () {
             employee.idCard = $('#idcard').val();
 
             $.ajax({
-                url: "http://localhost:8080/api/employees/",
+                url: "/api/employees/",
                 method: "POST", //"POST"
                 dataType: 'json',
                 contentType: "application/json",
@@ -107,7 +107,7 @@ employees.save = function () {
             employee.dateAdd = $('#dateAdd').val();
 
             $.ajax({
-                url: "http://localhost:8080/api/employees/",
+                url: "/api/employees/",
                 method: "PUT",
                 dataType: "json",
                 contentType: "application/json",
@@ -146,7 +146,7 @@ employees.delete = function (id) {
         callback: function (result) {
             if (result) {
                 $.ajax({
-                    url: "http://localhost:8080/api/employees/" + id,
+                    url: "/api/employees/" + id,
                     method: "DELETE",
                     dataType: "json",
                     success: function () {
@@ -164,7 +164,7 @@ employees.delete = function (id) {
 
 employees.get = function (id) {
     $.ajax({
-        url: "http://localhost:8080/api/employees/" + id,
+        url: "/api/employees/" + id,
         method: "GET",
         dataType: "json",
         success: function (data) {

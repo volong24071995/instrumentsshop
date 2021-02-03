@@ -1,6 +1,6 @@
 rates.findStatus = function () {
     $.ajax({
-        url: "http://localhost:8080/api/ratesStatus/",
+        url: "/api/ratesStatus/",
         method: "GET",
         dataType: "json",
         success: function (data) {
@@ -36,7 +36,7 @@ rates.findStatus = function () {
 
 // employees.findUser = function () {
 //     $.ajax({
-//         url: "http://localhost:8080/api/employeesName/",
+//         url: "/api/employeesName/",
 //         method: "GET",
 //         dataType: "json",
 //         success: function (data) {

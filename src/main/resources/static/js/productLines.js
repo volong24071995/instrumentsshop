@@ -6,7 +6,7 @@ productLines.intTable = function () {
     if (role==="ADMIN"){
         $("#productLines-datatables").DataTable({
             ajax: {
-                url: 'http://localhost:8080/api/typeProducts/',
+                url: '/api/typeProducts/',
                 method: "GET",
                 datatype: "json",
                 dataSrc: ""
@@ -57,7 +57,7 @@ productLines.intTable = function () {
     }else {
         $("#productLines-datatables").DataTable({
             ajax: {
-                url: 'http://localhost:8080/api/typeProducts/',
+                url: '/api/typeProducts/',
                 method: "GET",
                 datatype: "json",
                 dataSrc: ""
@@ -121,7 +121,7 @@ productLines.save = function () {
             typeObj.image = $('#base64').val();
             //
             $.ajax({
-                url: "http://localhost:8080/api/typeProduct/",
+                url: "/api/typeProduct/",
                 method: "POST",
                 dataType: "json",
                 contentType: "application/json",
@@ -149,7 +149,7 @@ productLines.save = function () {
             typeObj.image = $('#base64').val();
             //
             $.ajax({
-                url: "http://localhost:8080/api/typeProduct/",
+                url: "/api/typeProduct/",
                 method: "PUT",
                 dataType: "json",
                 contentType: "application/json",
@@ -185,7 +185,7 @@ productLines.delete = function (id) {
         callback: function (result) {
             if (result) {
                 $.ajax({
-                    url: "http://localhost:8080/api/typeProduct/" + id,
+                    url: "/api/typeProduct/" + id,
                     method: "DELETE",
                     dataType: "json",
                     success: function () {
@@ -203,7 +203,7 @@ productLines.delete = function (id) {
 
 productLines.get = function (title,id) {
     $.ajax({
-        url: "http://localhost:8080/api/typeProduct/" + id,
+        url: "/api/typeProduct/" + id,
         method: "GET",
         dataType: "json",
         success: function (data) {

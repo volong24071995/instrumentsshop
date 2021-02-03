@@ -4,7 +4,7 @@ var rates = {} || rates;
 employees.intTable = function () {
     $("#employees-datatables").DataTable({
         ajax: {
-            url: 'http://localhost:8080/api/employeesDeleted/',
+            url: '/api/employeesDeleted/',
             method: "GET",
             datatype: "json",
             dataSrc: ""
@@ -64,7 +64,7 @@ employees.delete = function (id) {
         callback: function (result) {
             if (result) {
                 $.ajax({
-                    url: "http://localhost:8080/api/employeesDeleted/" + id,
+                    url: "/api/employeesDeleted/" + id,
                     method: "DELETE",
                     dataType: "json",
                     success: function () {
@@ -97,7 +97,7 @@ employees.undo= function (id) {
         callback: function (result) {
             if (result) {
                 $.ajax({
-                    url: "http://localhost:8080/api/employeeUndo/" + id,
+                    url: "/api/employeeUndo/" + id,
                     method: "PUT",
                     dataType: "json",
                     success: function () {

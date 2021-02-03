@@ -15,7 +15,7 @@ users.create = function () {
         user.image = $('#base64').val();
         user.dateOfBirth = $('#dateOfBirth').val();
         $.ajax({
-            url: "http://localhost:8080/api/users/",
+            url: "/api/users/",
             method: "POST",
             dataType: 'json',
             contentType: "application/json",
@@ -51,7 +51,7 @@ users.create = function () {
 //         user.image = $('#image').val();
 //         user.dateOfBirth = $('#dateOfBirth').val();
 //         $.ajax({
-//             url: "http://localhost:8080/api/users/",
+//             url: "/api/users/",
 //             method: "POST", //"POST"
 //             dataType: 'json',
 //             contentType: "application/json",

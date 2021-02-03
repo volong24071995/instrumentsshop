@@ -4,7 +4,7 @@ orders.intTableDeleted = function () {
     var id;
     $("#orders-datatables").DataTable({
         ajax: {
-            url: 'http://localhost:8080/api/ordersDelete/',
+            url: '/api/ordersDelete/',
             method: "GET",
             datatype: "json",
             dataSrc: ""
@@ -60,7 +60,7 @@ orders.intTableDeleted = function () {
 
 orders.get = function (id) {
     $.ajax({
-        url: "http://localhost:8080/api/ordersDelete/" + id,
+        url: "/api/ordersDelete/" + id,
         method: "GET",
         dataType: "json",
         success: function (data) {
@@ -105,7 +105,7 @@ orders.undo = function (id) {
         callback: function (result) {
             if (result) {
                 $.ajax({
-                    url: "http://localhost:8080/api/undo/" + id,
+                    url: "/api/undo/" + id,
                     method: "GET",
                     dataType: "json",
                     success: function (data) {

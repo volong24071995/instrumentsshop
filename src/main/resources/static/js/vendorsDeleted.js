@@ -6,7 +6,7 @@ vendors.intTable = function () {
     if (role==="ADMIN"){
         $("#vendors-datatables").DataTable({
             ajax: {
-                url: 'http://localhost:8080/api/vendorsDeleted/',
+                url: '/api/vendorsDeleted/',
                 method: "GET",
                 datatype: "json",
                 dataSrc: ""
@@ -70,7 +70,7 @@ vendors.intTable = function () {
     }else {
         $("#vendors-datatables").DataTable({
             ajax: {
-                url: 'http://localhost:8080/api/vendorsDeleted/',
+                url: '/api/vendorsDeleted/',
                 method: "GET",
                 datatype: "json",
                 dataSrc: ""
@@ -137,7 +137,7 @@ vendors.delete = function (id) {
         callback: function (result) {
             if (result) {
                 $.ajax({
-                    url: "http://localhost:8080/api/vendorDeleted/" + id,
+                    url: "/api/vendorDeleted/" + id,
                     method: "DELETE",
                     dataType: "json",
                     success: function () {
@@ -170,7 +170,7 @@ vendors.undo= function (id) {
         callback: function (result) {
             if (result) {
                 $.ajax({
-                    url: "http://localhost:8080/api/vendorUndo/" + id,
+                    url: "/api/vendorUndo/" + id,
                     method: "PUT",
                     dataType: "json",
                     success: function () {
@@ -187,7 +187,7 @@ vendors.undo= function (id) {
 };
 vendors.getVendorDeleted = function (id) {
     $.ajax({
-        url: "http://localhost:8080/api/vendorDeleted/" + id,
+        url: "/api/vendorDeleted/" + id,
         method: "GET",
         dataType: "json",
         success: function (data) {

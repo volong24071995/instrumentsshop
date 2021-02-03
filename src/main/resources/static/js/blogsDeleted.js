@@ -6,7 +6,7 @@ blogs.intTable = function (){
     if (role==='ADMIN'){
         $("#blogs-datatables").DataTable({
             ajax:{
-                url: 'http://localhost:8080/api/blogsDeleted/',
+                url: '/api/blogsDeleted/',
                 method: 'GET',
                 dataType: 'json',
                 dataSrc: ''
@@ -39,7 +39,7 @@ blogs.intTable = function (){
     }else {
         $("#blogs-datatables").DataTable({
             ajax:{
-                url: 'http://localhost:8080/api/blogsDeleted/',
+                url: '/api/blogsDeleted/',
                 method: 'GET',
                 dataType: 'json',
                 dataSrc: ''
@@ -82,7 +82,7 @@ blogs.delete = function (id){
         callback: function (result){
             if (result){
                 $.ajax({
-                    url: 'http://localhost:8080/api/blogDeleted/' + id,
+                    url: '/api/blogDeleted/' + id,
                     method: "DELETE",
                     dataType: "json",
                     success: function (){
@@ -114,7 +114,7 @@ blogs.undo = function (id){
         callback: function (result){
             if (result){
                 $.ajax({
-                    url: 'http://localhost:8080/api/blogUndo/' + id,
+                    url: '/api/blogUndo/' + id,
                     method: 'PUT',
                     dataType: 'json',
                     success: function (){

@@ -6,7 +6,7 @@ products.intTable = function () {
     if (role==="ADMIN"){
         $("#products-datatables").DataTable({
             ajax: {
-                url: 'http://localhost:8080/api/productsDeleted/',
+                url: '/api/productsDeleted/',
                 method: "GET",
                 datatype: "json",
                 dataSrc: ""
@@ -64,7 +64,7 @@ products.intTable = function () {
     }else {
         $("#products-datatables").DataTable({
             ajax: {
-                url: 'http://localhost:8080/api/productsDeleted/',
+                url: '/api/productsDeleted/',
                 method: "GET",
                 datatype: "json",
                 dataSrc: ""
@@ -129,7 +129,7 @@ products.delete = function (id) {
         callback: function (result) {
             if (result) {
                 $.ajax({
-                    url: "http://localhost:8080/api/productDeleted/" + id,
+                    url: "/api/productDeleted/" + id,
                     method: "DELETE",
                     dataType: "json",
                     success: function () {
@@ -162,7 +162,7 @@ products.undo= function (id) {
         callback: function (result) {
             if (result) {
                 $.ajax({
-                    url: "http://localhost:8080/api/productUndo/" + id,
+                    url: "/api/productUndo/" + id,
                     method: "PUT",
                     dataType: "json",
                     success: function () {
@@ -180,7 +180,7 @@ products.undo= function (id) {
 
 products.getProductDeleted = function (id) {
     $.ajax({
-        url: "http://localhost:8080/api/productDeleted/" + id,
+        url: "/api/productDeleted/" + id,
         method: "GET",
         dataType: "json",
         success: function (data) {
@@ -212,7 +212,7 @@ var types=types||{};
 var typeData=[];
 types.initTypes = function () {
     $.ajax({
-        url: "http://localhost:8080/api/typeProducts/",
+        url: "/api/typeProducts/",
         method: "GET",
         dataType: "json",
         success: function (data) {
@@ -237,7 +237,7 @@ var vendors=vendors||{};
 var vendorData=[];
 vendors.initVendors = function () {
     $.ajax({
-        url: "http://localhost:8080/api/vendors/",
+        url: "/api/vendors/",
         method: "GET",
         dataType: "json",
         success: function (data) {

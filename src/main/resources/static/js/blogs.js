@@ -5,7 +5,7 @@ blogs.intTable = function () {
     if (role==='ADMIN'){
         $("#blogs-datatables").DataTable({
             ajax: {
-                url: 'http://localhost:8080/api/blogs/',
+                url: '/api/blogs/',
                 method: "GET",
                 dataType: "json",
                 dataSrc: ""
@@ -42,7 +42,7 @@ blogs.intTable = function () {
     }else {
         $("#blogs-datatables").DataTable({
             ajax: {
-                url: 'http://localhost:8080/api/blogs/',
+                url: '/api/blogs/',
                 method: "GET",
                 dataType: "json",
                 dataSrc: ""
@@ -88,7 +88,7 @@ blogs.save = function () {
         blogObj.image = $('#base64').val();
         blogObj.content = $('#content').val();
         $.ajax({
-            url: 'http://localhost:8080/api/blog/',
+            url: '/api/blog/',
             method: 'POST',
             dataType: 'json',
             contentType: 'application/json',
@@ -122,7 +122,7 @@ blogs.update = function (){
         blogObj.dateAdd = $('#dateAdd').val();
         console.log(blogObj)
         $.ajax({
-            url: 'http://localhost:8080/api/blog/',
+            url: '/api/blog/',
             method: 'PUT',
             dataType: 'json',
             contentType: 'application/json',
@@ -143,7 +143,7 @@ blogs.update = function (){
 blogs.get = function (){
     var id = $('#id').val();
     $.ajax({
-        url: 'http://localhost:8080/api/blog/' + id,
+        url: '/api/blog/' + id,
         method: 'GET',
         dataType: 'json',
         success: function (data){
@@ -154,7 +154,7 @@ blogs.get = function (){
 
 blogs.view = function (id){
     $.ajax({
-        url: 'http://localhost:8080/api/blog/' + id,
+        url: '/api/blog/' + id,
         method: 'GET',
         dataType: 'json',
         success: function (data){
@@ -188,7 +188,7 @@ blogs.delete = function (id) {
         callback: function (result) {
             if (result) {
                 $.ajax({
-                    url: 'http://localhost:8080/api/blog/' + id,
+                    url: '/api/blog/' + id,
                     method: 'DELETE',
                     dataType: 'json',
                     success: function () {

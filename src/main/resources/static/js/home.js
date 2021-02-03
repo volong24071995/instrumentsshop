@@ -3,7 +3,7 @@ var products = {} || products;
 var blogs = {} || blogs;
 banners.bannerList = function () {
     $.ajax({
-        url: 'http://localhost:8080/api/banners/',
+        url: '/api/banners/',
         method: "GET",
         dataType: "json",
         success: function (data) {
@@ -52,7 +52,7 @@ banners.bannerList = function () {
 var orders={}||orders;
 products.new4products = function () {
     $.ajax({
-        url: 'http://localhost:8080/api/newFourProducts/',
+        url: '/api/newFourProducts/',
         method: "GET",
         dataType: "json",
         success: function (data) {
@@ -84,7 +84,7 @@ products.new4products = function () {
 }
 blogs.new4blogs = function () {
     $.ajax({
-        url: 'http://localhost:8080/api/newFourBlogs/',
+        url: '/api/newFourBlogs/',
         method: "GET",
         dataType: "json",
         success: function (data) {
@@ -116,7 +116,7 @@ blogs.new4blogs = function () {
 //Page Blogs
 blogs.new8blogs = function () {
     $.ajax({
-        url: 'http://localhost:8080/api/newEightBlogs/',
+        url: '/api/newEightBlogs/',
         method: "GET",
         dataType: "json",
         success: function (data) {
@@ -167,7 +167,7 @@ blogs.new8blogs = function () {
 blogs.view = function () {
     var id = $("#id").val();
     $.ajax({
-        url: 'http://localhost:8080/api/blog/' + id,
+        url: '/api/blog/' + id,
         method: 'GET',
         dataType: 'json',
         success: function (data) {
