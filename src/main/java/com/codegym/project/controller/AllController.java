@@ -111,13 +111,13 @@ public class AllController {
 
     @GetMapping(value = "/products")
     public ModelAndView listProducts(){
-        ModelAndView modelAndView=new ModelAndView("/admin/Product");
+        ModelAndView modelAndView=new ModelAndView("admin/Product");
         return modelAndView;
     }
 
     @GetMapping(value = "/productDeleted")
     public ModelAndView listProductsDeleted(){
-        ModelAndView modelAndView= new ModelAndView("/admin/ProductIsDeleted");
+        ModelAndView modelAndView= new ModelAndView("admin/ProductIsDeleted");
         return modelAndView;
     }
 
@@ -151,12 +151,12 @@ public class AllController {
     }
     @GetMapping(value = "/usersDelete")
     public ModelAndView listUsersDeleted() {
-        ModelAndView modelAndView = new ModelAndView("/admin/UsersIsDelete");
+        ModelAndView modelAndView = new ModelAndView("admin/UsersIsDelete");
         return modelAndView;
     }
     @GetMapping(value = "/employeesDelete")
     public ModelAndView listEmsDeleted() {
-        ModelAndView modelAndView = new ModelAndView("/admin/EmployeeIsDelete");
+        ModelAndView modelAndView = new ModelAndView("admin/EmployeeIsDelete");
         return modelAndView;
     }
     @GetMapping(value = "/vendors")
