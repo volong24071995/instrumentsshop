@@ -53,9 +53,9 @@ orders.showCart=function () {
                                     <li>
                                         <p>Qty :
                                             <span>
-                                                <button type="button" style="width:10%" title="-" onclick="orders.upDown(this.title,${v.product.id})">-</button>
+                                                <button type="button" style="width:10%" title='-' onclick="orders.upDown(${v.product.id},this.title)">-</button>
                                                 <input type="text" value="${v.quantity}" id="quantity" disabled="disabled" style="width: 20%;text-align: center;justify-content: center" >
-                                                <button type="button" style="width:10%" title="+" onclick="orders.upDown(this.title,${v.product.id})">+</button>
+                                                <button type="button" style="width:10%" title='+' onclick="orders.upDown(${v.product.id},this.title)" >+</button>
                                             </span> 
                                         </p>
                                     </li>
@@ -78,13 +78,32 @@ orders.showCart=function () {
 }
 
 orders.deleteProduct=function (id) {
-    $.ajax({
-        url: '/api/deleteProduct/' + id,
-        method: "GET",
-        dataType: "json",
-        success: function (data) {
-            location.reload();
-            toastr.info('Delete products to cart', 'INFORMATION:')
+    bootbox.confirm({
+        message: "Do you want to delete this Product",
+        buttons: {
+            confirm: {
+                label: 'Yes',
+                className: 'btn-success'
+            },
+            cancel: {
+                label: 'No',
+                className: 'btn-danger'
+            }
+        },
+        callback: function (result) {
+            if (result) {
+                $.ajax({
+                    url: 'http://localhost:8080/api/deleteProduct/' + id,
+                    method: "GET",
+                    dataType: "json",
+                    success: function (data) {
+                        location.reload();
+                    },
+                    error: function () {
+                        toastr.error('Error!! The product is not available', 'INFORMATION:')
+                    }
+                });
+            }
         }
     });
 }
@@ -114,56 +133,39 @@ orders.checkoutCart=function (){
     });
 }
 
-orders.upDown=function (title,id){
-    console.log(title);
-    if (title=== '-') {
+orders.upDown=function (id,title){
+    if (title==="-") {
         var qty = $("#quantity").val();
-        if (qty - 1 === 0) {
-            bootbox.confirm({
-                message: "Do you want to delete this Product",
-                buttons: {
-                    confirm: {
-                        label: 'Yes',
-                        className: 'btn-success'
-                    },
-                    cancel: {
-                        label: 'No',
-                        className: 'btn-danger'
-                    }
+        if (qty - 1=== 0) {
+            orders.deleteProduct(id);
+        }else {
+            $.ajax({
+                url: "http://localhost:8080/api/down/" + id,
+                method: "GET",
+                dataType: "json",
+                success: function () {
+                    location.reload();
                 },
-                callback: function (result) {
-                    if (result) {
-                        $.ajax({
-                            url: "/api/down/" + id,
-                            method: "GET",
-                            dataType: "json",
-                            success: function () {
-                                toastr.info('Delete all products to cart', 'INFORMATION:')
-                                // location.reload();
-                            },
-                            error: function (jqXHR, exception) {
-                                toastr.error('Error!! Product not has been delete', 'INFORMATION:')
-                            }
-                        });
-                    }
+                error: function (jqXHR, exception) {
+                    toastr.error('Error!! The product is not available', 'INFORMATION:')
                 }
             });
         }
     }else {
         $.ajax({
-            url: "/api/up/" + id,
+            url: "http://localhost:8080/api/up/" + id,
             method: "GET",
             dataType: "json",
             success: function () {
                 location.reload();
-                toastr.info('Delete all products to cart', 'INFORMATION:')
             },
             error: function (jqXHR, exception) {
-                toastr.error('Error!! Product not has been delete', 'INFORMATION:')
+                toastr.error('Error!! The product is not available', 'INFORMATION:')
             }
         });
     }
 }
+
 $(document).ready(function () {
     orders.showCart();
 });
