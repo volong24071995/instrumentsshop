@@ -93,7 +93,7 @@ orders.deleteProduct=function (id) {
         callback: function (result) {
             if (result) {
                 $.ajax({
-                    url: 'http://localhost:8080/api/deleteProduct/' + id,
+                    url: '/api/deleteProduct/' + id,
                     method: "GET",
                     dataType: "json",
                     success: function (data) {
@@ -140,7 +140,7 @@ orders.upDown=function (id,title){
             orders.deleteProduct(id);
         }else {
             $.ajax({
-                url: "http://localhost:8080/api/down/" + id,
+                url: "/api/down/" + id,
                 method: "GET",
                 dataType: "json",
                 success: function () {
@@ -153,7 +153,7 @@ orders.upDown=function (id,title){
         }
     }else {
         $.ajax({
-            url: "http://localhost:8080/api/up/" + id,
+            url: "/api/up/" + id,
             method: "GET",
             dataType: "json",
             success: function () {
