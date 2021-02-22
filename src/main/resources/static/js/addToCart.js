@@ -18,6 +18,7 @@ orders.addToCart=function (id) {
 }
 
 orders.showCart=function () {
+    $("#listOrder").html(`<h1>My Shopping Bag (<sp id="sl">0</sp>)</h1>`)
     if ($("#addCart").empty()){
         var id=$("#id").val();
         $("#addCart").html(
@@ -97,7 +98,8 @@ orders.deleteProduct=function (id) {
                     method: "GET",
                     dataType: "json",
                     success: function (data) {
-                        location.reload();
+                        toastr.info('Delete products to cart', 'INFORMATION:')
+                        orders.showCart().reload();
                     },
                     error: function () {
                         toastr.error('Error!! The product is not available', 'INFORMATION:')
@@ -126,9 +128,8 @@ orders.checkoutCart=function (){
         method: "GET",
         dataType: "json",
         success: function (data) {
-            location.reload();
             toastr.info('Checkout cart success', 'INFORMATION:')
-
+            orders.showCart().reload();
         }
     });
 }
@@ -144,7 +145,7 @@ orders.upDown=function (id,title){
                 method: "GET",
                 dataType: "json",
                 success: function () {
-                    location.reload();
+                    orders.showCart().reload();
                 },
                 error: function (jqXHR, exception) {
                     toastr.error('Error!! The product is not available', 'INFORMATION:')
@@ -157,7 +158,7 @@ orders.upDown=function (id,title){
             method: "GET",
             dataType: "json",
             success: function () {
-                location.reload();
+                orders.showCart().reload();
             },
             error: function (jqXHR, exception) {
                 toastr.error('Error!! The product is not available', 'INFORMATION:')
